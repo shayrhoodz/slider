@@ -3,61 +3,59 @@ import logo from './logo.svg';
 import './App.css';
 
 import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
+
 import styled from 'styled-components';
+
+import Header from './components/Header'
+import Menu from './components/Menu'
+import Main from './components/Main'
+
+const url = process.env.PUBLIC_URL + '/img/bg.jpg';
+
+const HeaderWrapper = styled.header`
+  width: 100%;
+  height: 49px;
+  background-color: #242424;
+  opacity: 0.8;
+`
+
+const MenuWrapper = styled.div`
+  height: 89px;
+  padding-top: 20px;
+`
+
+const MainWrapper = styled.main`
+  height: 600px;
+  padding-top: 130px;
+  background: url(${url}) no-repeat;
+  background-size: cover;
+  
+`
 
 class App extends Component {
   render() {
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <h1 className="App-title">Welcome to React</h1>
-      //   </header>
-      //   <p className="App-intro">
-      //     To get started, edit <code>src/App.js</code> and save to reload.
-      //   </p>
-      // </div>
-
-      <div className="wrapper">    
-        <SaveFullName name='Radik' username='Shaymardanov' link='vk.com' />
-        <SaveFullName name='Anna' username='Kamneva' link='facebook.com' />
-        <SaveFullName name='Rad' username='Shaymardanov' link='#' />
+      <div className='App'>
+        <HeaderWrapper>
+          <Grid>
+            <Header />
+          </Grid>
+        </HeaderWrapper>
+        <MenuWrapper>
+          <Grid>
+            <Menu />
+          </Grid>
+        </MenuWrapper>
+        <MainWrapper>
+          <Grid>
+            <Main />
+          </Grid>
+        </MainWrapper>
+        <Main />
       </div>
     );
   }
 }
-
-
-function SaveFullName(props) {
-  return (
-    <div>
-      <h1> Мое Имя {props.name}, фамилия - {props.username}</h1>
-      <a href={props.link}> Ссылка на мой профиль </a>  
-      </div>
-    );
-  }
-  
-  
-// function Hello() {
-//   let phrase = "World"
-//   return (
-//     <h1> Hello {phrase} </h1>
-//     // <h1> Hello {4+5} </h1>
-//     );
-// }
-  
-// function MeetAll () {
-//   return (
-//       <div>    
-//         <SaveFullName name='Radik' username='Shaymardanov' link='vk.com' />
-//         <SaveFullName name='Anna' username='Kamneva' link='facebook.com' />
-//         <SaveFullName name='Rad' username='Shaymardanov' link='#' />
-//       </div>
-
-//     );
-// }
 
 
 export default App;
